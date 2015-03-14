@@ -1410,7 +1410,11 @@
 		[
 			[
 				"season",
-				"~/ruby_projects/season/untitled.sublime-workspace"
+				"~/ruby_projects/season/season.sublime-project"
+			],
+			[
+				"seas",
+				"~/redlight/rumour-ruby/season.sublime-workspace"
 			],
 			[
 				"mq",
