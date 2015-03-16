@@ -20,19 +20,29 @@ Or install it yourself as:
 
 ## Requirements
 
-To communicate with Rumour REST API you need a Rumour account.
+To communicate with Rumour REST API you will need a Rumour account.
 
 ## Usage
 
-TODO
+First, initialize a client:
+```ruby
+access_token = 'your_rumour_access_token'
 
-## To Do
+rumour = Rumour::Client.new(access_token)
+```
 
-- Pretty much everything
+Then, send a text message:
+```ruby
+from = '+15005550006'
+recipient = '+15005550005'
+
+rumour.send_text_message()
+#=> {'id' => '1', 'from' => '+15005550006', 'recipient' => '+15005550005', ... }
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/joaodiogocosta/rumour-ruby/fork )
+1. Fork it ( https://github.com/joaodiogocosta/rumour-ruby/fork ) 
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -13,4 +13,4 @@
 *.a
 *.gem
 mkmf.log
-rumour-ruby.sublime-project
+*.sublime*
