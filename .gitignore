@@ -13,4 +13,5 @@
 *.a
 *.gem
 mkmf.log
-*.sublime*
+*.sublime-project
+*.sublime-workspace
