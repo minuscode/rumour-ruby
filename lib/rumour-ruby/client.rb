@@ -14,14 +14,12 @@ module Rumour
       @access_token = access_token || Rumour.configuration.access_token
     end
 
-    def send_text_message(sender, recipients, body)
-      recipients = [recipients].flatten
-      post('/text_messages', text_message: { from: sender, recipients: recipients, body: body })
+    def send_text_message(sender, recipient, body)
+      post('/text_messages', text_message: { from: sender, recipient: recipient, body: body })
     end
 
-    def deliver_push_notification(platform, recipients, data)
-      recipients = [recipients].flatten
-      post('/push_notifications', platform: platform, recipients: recipients, data: data)
+    def deliver_push_notification(platform, recipient, data)
+      post('/push_notifications', platform: platform, recipient: recipient, data: data)
     end
 
     private

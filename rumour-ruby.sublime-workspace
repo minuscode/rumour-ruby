@@ -5,7 +5,35 @@
 		[
 			[
 				"api",
-				"api_secret_or_access_token"
+				"api_key"
+			],
+			[
+				"cons",
+				"consumer_secret"
+			],
+			[
+				"Con",
+				"configuration"
+			],
+			[
+				"some",
+				"some_consumer_key"
+			],
+			[
+				"con",
+				"consumer_key"
+			],
+			[
+				"bearer",
+				"bearer"
+			],
+			[
+				"consu",
+				"consumer_secret"
+			],
+			[
+				"co",
+				"consumer_key"
 			],
 			[
 				"reci",
@@ -348,34 +376,10 @@
 	"buffers":
 	[
 		{
-			"file": "rumour-ruby.gemspec",
+			"file": "lib/rumour.rb",
 			"settings":
 			{
-				"buffer_size": 945,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/rumour-ruby.rb",
-			"settings":
-			{
-				"buffer_size": 124,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README.md",
-			"settings":
-			{
-				"buffer_size": 687,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/rumour-ruby/version.rb",
-			"settings":
-			{
-				"buffer_size": 60,
+				"buffer_size": 141,
 				"line_ending": "Unix"
 			}
 		},
@@ -383,9 +387,25 @@
 			"file": "lib/rumour-ruby/client.rb",
 			"settings":
 			{
-				"buffer_size": 292,
+				"buffer_size": 988,
 				"line_ending": "Unix",
 				"name": "module Rumour"
+			}
+		},
+		{
+			"file": "spec/client_spec.rb",
+			"settings":
+			{
+				"buffer_size": 1440,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/spec_helper.rb",
+			"settings":
+			{
+				"buffer_size": 335,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -491,15 +511,25 @@
 	[
 		"/home/joaodiogocosta/redlight/rumour-ruby",
 		"/home/joaodiogocosta/redlight/rumour-ruby/lib",
-		"/home/joaodiogocosta/redlight/rumour-ruby/lib/rumour-ruby"
+		"/home/joaodiogocosta/redlight/rumour-ruby/lib/rumour-ruby",
+		"/home/joaodiogocosta/redlight/rumour-ruby/spec"
 	],
 	"file_history":
 	[
+		"/home/joaodiogocosta/redlight/rumour-ruby/spec/configuration_spec.rb",
+		"/home/joaodiogocosta/redlight/rumour-ruby/lib/rumour-ruby/configuration.rb",
+		"/home/joaodiogocosta/redlight/rumour-ruby/spec/client_spec.rb",
+		"/home/joaodiogocosta/redlight/rumour-ruby/.gitignore",
+		"/home/joaodiogocosta/redlight/rumour-ruby/lib/rumour-ruby/authentication.rb",
+		"/home/joaodiogocosta/redlight/rumour-ruby/Rakefile",
+		"/home/joaodiogocosta/redlight/rumour-ruby/rumour-ruby.gemspec",
+		"/home/joaodiogocosta/redlight/rumour-ruby/lib/rumour-ruby/version.rb",
+		"/home/joaodiogocosta/redlight/rumour-ruby/README.md",
+		"/home/joaodiogocosta/redlight/rumour-ruby/spec/spec_helper.rb",
 		"/home/joaodiogocosta/redlight/rumour-ruby/Gemfile",
 		"/home/joaodiogocosta/redlight/rumour-ruby/lib/rumour-ruby/ruby.rb",
 		"/home/joaodiogocosta/redlight/rumour-ruby/lib/rumour-ruby/ruby/version.rb",
 		"/home/joaodiogocosta/redlight/rumour-ruby/rumour-ruby.sublime-project",
-		"/home/joaodiogocosta/redlight/rumour-ruby/.gitignore",
 		"/home/joaodiogocosta/redlight/rumour/rumour/config/initializers/devise.rb",
 		"/home/joaodiogocosta/redlight/rumour/rumour/config/initializers/twilio.rb",
 		"/home/joaodiogocosta/redlight/rumour/new/rumour/config/initializers/inflections.rb",
@@ -613,16 +643,7 @@
 		"/home/joaodiogocosta/redlight/rumour/new/rumour/config/initializers/filter_parameter_logging.rb",
 		"/home/joaodiogocosta/redlight/rumour/new/rumour/config/initializers/devise.rb",
 		"/home/joaodiogocosta/redlight/rumour/new/rumour/config/environments/test.rb",
-		"/home/joaodiogocosta/redlight/rumour/new/rumour/config/environments/production.rb",
-		"/home/joaodiogocosta/redlight/rumour/new/rumour/config/environments/development.rb",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/locales/en.yml",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/locales/devise.en.yml",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/initializers/wrap_parameters.rb",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/initializers/resque.rb",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/initializers/filter_parameter_logging.rb",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/environments/test.rb",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/environments/production.rb",
-		"/home/joaodiogocosta/redlight/rumour/rumour/config/environments/development.rb"
+		"/home/joaodiogocosta/redlight/rumour/new/rumour/config/environments/production.rb"
 	],
 	"find":
 	{
@@ -652,6 +673,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"described_class",
+			"recipients",
+			"configurable_attributes",
+			"ruby",
 			"ENV[",
 			"config.secret",
 			"secret_token",
@@ -775,11 +800,7 @@
 			"when",
 			"authority_resource",
 			"controller",
-			"grape",
-			"authorize_action_for",
-			"Authority.enforce",
-			"authority_action_map",
-			"authority_action"
+			"grape"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -787,6 +808,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Rumour::Client",
+			"recipient",
 			"PushNotification",
 			"push_notification",
 			"PushNotification",
@@ -884,54 +907,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "rumour-ruby.gemspec",
+					"file": "lib/rumour.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 945,
+						"buffer_size": 141,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								822,
-								822
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lib/rumour-ruby.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 124,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								57,
-								57
+								29,
+								29
 							]
 						],
 						"settings":
@@ -942,44 +935,77 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "README.md",
+					"buffer": 1,
+					"file": "lib/rumour-ruby/client.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 687,
+						"buffer_size": 988,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								467,
-								467
+								384,
+								398
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+							"auto_name": "module Rumour",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "spec/client_spec.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1440,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								181,
+								181
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "lib/rumour-ruby/version.rb",
+					"file": "spec/spec_helper.rb",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 60,
+						"buffer_size": 335,
 						"regions":
 						{
 						},
@@ -998,36 +1024,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "lib/rumour-ruby/client.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 292,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								274,
-								274
-							]
-						],
-						"settings":
-						{
-							"auto_name": "module Rumour",
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1080,7 +1077,35 @@
 		"selected_items":
 		[
 			[
+				"clients",
+				"spec/client_spec.rb"
+			],
+			[
+				"conf",
+				"lib/rumour-ruby/configuration.rb"
+			],
+			[
+				"clien",
+				"lib/rumour-ruby/client.rb"
+			],
+			[
+				"config",
+				"lib/rumour-ruby/configuration.rb"
+			],
+			[
+				"gemps",
+				"rumour-ruby.gemspec"
+			],
+			[
 				"gems",
+				"rumour-ruby.gemspec"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"gemsp",
 				"rumour-ruby.gemspec"
 			],
 			[
@@ -1090,10 +1115,6 @@
 			[
 				"initdevi",
 				"new/rumour/config/initializers/devise.rb"
-			],
-			[
-				"giti",
-				"new/rumour/.gitignore"
 			],
 			[
 				"secrettoke",
@@ -1566,30 +1587,6 @@
 			[
 				"twilio",
 				"rumour/config/initializers/twilio.rb"
-			],
-			[
-				"sectes",
-				"new/rumour/config/secrets.yml"
-			],
-			[
-				"gemfile",
-				"rumour/Gemfile"
-			],
-			[
-				"textmessageseriv",
-				"rumour/app/services/text_message_service.rb"
-			],
-			[
-				"pushnotispec",
-				"new/rumour/spec/models/push_notification_spec.rb"
-			],
-			[
-				"newpushnot",
-				"new/rumour/app/models/push_notification.rb"
-			],
-			[
-				"pushnot",
-				"rumour/app/models/push_notification.rb"
 			]
 		],
 		"width": 0.0
@@ -1600,16 +1597,28 @@
 		"selected_items":
 		[
 			[
+				"rum",
+				"~/redlight/rumour/rumour.sublime-project"
+			],
+			[
+				"rumour",
+				"~/redlight/rumour/rumour.sublime-project"
+			],
+			[
+				"seas",
+				"~/ruby_projects/season/season.sublime-project"
+			],
+			[
+				"diyb",
+				"~/redlight/diybetes/diabetes_web/diybetes_web.sublime-project"
+			],
+			[
 				"mq",
 				"~/redlight/mquiq/mquiq.sublime-project"
 			],
 			[
 				"pla",
 				"~/redlight/plae/plae.sublime-project"
-			],
-			[
-				"seas",
-				"~/redlight/rumour-ruby/season.sublime-workspace"
 			],
 			[
 				"plae",
