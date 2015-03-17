@@ -36,9 +36,10 @@ RSpec.describe Rumour::Client do
   describe '.send_text_message with invalid data' do
     it 'creates and retrieves a new message as a hash' do
       rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
-      text_message = rumour_client.send_text_message('+351123456789', '+351123456789', 'Hello from rumour-ruby!')
 
-      expect(text_message['message']).to_not be_nil
+      expect {
+        text_message = rumour_client.send_text_message('+351123456789', '+351123456789', 'Hello from rumour-ruby!')        
+      }.to raise_error(Rumour::Errors::RequestError)
     end
   end
 end

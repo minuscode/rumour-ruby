@@ -24,17 +24,32 @@ module Rumour
 
     private
 
-    def post(url, params = {}, headers = {})
-      response = self.class.post(url, query: params, headers: headers.merge(auth_header))
-      JSON.parse(response.body)
-    end
+      def post(url, params = {}, headers = {})
+        response = self.class.post(url, query: params, headers: headers.merge(auth_header))
+        evaluate_response(response)
+      end
 
-    def auth_header
-      { 'Authorization' => "Bearer #{credentials}" }
-    end
+      def auth_header
+        { 'Authorization' => "Bearer #{credentials}" }
+      end
 
-    def credentials
-      Base64.urlsafe_encode64(@access_token)
-    end
+      def credentials
+        Base64.urlsafe_encode64(@access_token)
+      end
+
+      def evaluate_response(response)
+        response_body = JSON.parse(response.body)
+        
+        case response.code
+        when 201
+          response_body
+        when 400
+          raise Rumour::Errors::RequestError.new response_body['message']
+        when 401
+          raise Rumour::Errors::AuthenticationError.new response_body['message']
+        when 500
+          raise Rumour::Errors::AuthenticationError.new response_body['message']
+        end
+      end
   end
 end
