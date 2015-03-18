@@ -12,6 +12,7 @@ module Rumour
 
     def initialize(access_token = nil)
       @access_token = access_token || Rumour.configuration.access_token
+      raise Rumour::Errors::AuthenticationError.new('Missing access token') if @access_token.nil?
     end
 
     def send_text_message(sender, recipient, body)

@@ -1,4 +1,4 @@
-require 'rumour'
+require 'rumour-ruby'
 # require "codeclimate-test-reporter"
 # CodeClimate::TestReporter.start
 

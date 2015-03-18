@@ -22,6 +22,12 @@ RSpec.describe Rumour::Client do
 
       expect(rumour_client.access_token).to eq('CONFIGURED_ACCESS_TOKEN')
     end
+
+    it 'raises an AuthenticationError if no access_token is supplied' do
+      Rumour.configure { |config| config.access_token = nil }
+      expect { rumour_client = Rumour::Client.new }.to raise_error(Rumour::Errors::AuthenticationError)
+      Rumour.configure { |config| config.access_token = 'CONFIGURED_ACCESS_TOKEN' }
+    end
   end
 
   describe '.send_text_message with valid data' do
@@ -34,7 +40,7 @@ RSpec.describe Rumour::Client do
   end
 
   describe '.send_text_message with invalid data' do
-    it 'creates and retrieves a new message as a hash' do
+    it 'raises a RequestError' do
       rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
 
       expect {
