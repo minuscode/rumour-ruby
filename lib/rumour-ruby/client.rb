@@ -19,8 +19,8 @@ module Rumour
       post('/text_messages', text_message: { from: sender, recipient: recipient, body: body })
     end
 
-    def deliver_push_notification(platform, recipient, data)
-      post('/push_notifications', platform: platform, recipient: recipient, data: data)
+    def send_push_notification(platform, recipient, data)
+      post('/push_notifications', push_notification: { platform: platform, recipient: recipient, data: data })
     end
 
     private

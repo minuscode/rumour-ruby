@@ -30,22 +30,35 @@ RSpec.describe Rumour::Client do
     end
   end
 
-  describe '.send_text_message with valid data' do
-    it 'creates and retrieves a new message as a hash' do
-      rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
-      text_message = rumour_client.send_text_message(TWILIO_TEST_SENDER_NUMBER, TWILIO_TEST_RECIPIENT_NUMBER, 'Hello from rumour-ruby!')
+  describe 'text_messages' do
+    describe 'send with valid data' do
+      it 'creates and retrieves a new message as a hash' do
+        rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
+        text_message = rumour_client.send_text_message(TWILIO_TEST_SENDER_NUMBER, TWILIO_TEST_RECIPIENT_NUMBER, 'Hello from rumour-ruby!')
 
-      expect(text_message['id']).to_not be_nil
+        expect(text_message['id']).to_not be_nil
+      end
+    end
+
+    describe 'send with invalid data' do
+      it 'raises a RequestError' do
+        rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
+
+        expect {
+          text_message = rumour_client.send_text_message('+351123456789', '+351123456789', 'Hello from rumour-ruby!')        
+        }.to raise_error(Rumour::Errors::RequestError)
+      end
     end
   end
 
-  describe '.send_text_message with invalid data' do
-    it 'raises a RequestError' do
-      rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
+  describe 'push_notifications' do
+    describe 'send with valid data' do
+      it 'creates and retrieves a new push notification as a hash' do
+        rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
+        push_notification = rumour_client.send_push_notification('android', 'some_registration_id', { hello: 'world'})
 
-      expect {
-        text_message = rumour_client.send_text_message('+351123456789', '+351123456789', 'Hello from rumour-ruby!')        
-      }.to raise_error(Rumour::Errors::RequestError)
+        expect(push_notification['id']).to_not be_nil
+      end
     end
   end
 end
