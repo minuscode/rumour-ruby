@@ -55,8 +55,19 @@ RSpec.describe Rumour::Client do
     describe 'send with valid data' do
       it 'creates and retrieves a new push notification as a hash' do
         rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
-        push_notification = rumour_client.send_push_notification('android', 'some_registration_id', { hello: 'world'})
+        push_notification = rumour_client.send_push_notification('android', 'some_registration_id', data: { hello: 'world'})
 
+        expect(push_notification['id']).to_not be_nil
+      end
+    end
+  end
+
+  describe 'ios push_notifications' do
+    describe 'send with valid data' do
+      it 'creates and retrieves a new push notification as a hash' do
+        rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
+        push_notification = rumour_client.send_push_notification('ios', 'some_registration_id', { alert: 'world'})
+        
         expect(push_notification['id']).to_not be_nil
       end
     end
