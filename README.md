@@ -36,8 +36,22 @@ Then, send a text message:
 from = '+15005550006'
 recipient = '+15005550005'
 
-rumour.send_text_message()
+rumour.send_text_message(from, recipient, 'Hello from Rumour!')
 #=> {'id' => '1', 'from' => '+15005550006', 'recipient' => '+15005550005', ... }
+```
+
+Or an Android Push Notification:
+```ruby
+recipient = 'Device-Token-Here'
+
+rumour.send_push_notification('android', recipient, data: { ... })
+```
+
+Or even an iOS Push Notification:
+```ruby
+recipient = 'Device-Token-Here'
+
+rumour.send_push_notification('ios', recipient, alert: { ... })
 ```
 
 ## Contributing
