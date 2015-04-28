@@ -6,12 +6,16 @@ RSpec.describe Rumour do
       described_class.configure do |config|
         config.api_key = 'some_api_key'
         config.access_token = 'some_access_token'
+        config.intercept_text_message_recipient = '+14108675309'
+        config.intercept_push_notification_recipient = 'push_recipient'
       end
     end
 
     it 'assigns the authentication credentials' do
       expect(described_class.configuration.api_key).to eq('some_api_key')
       expect(described_class.configuration.access_token).to eq('some_access_token')
+      expect(described_class.configuration.intercept_text_message_recipient).to eq('+14108675309')
+      expect(described_class.configuration.intercept_push_notification_recipient).to eq('push_recipient')
     end
   end
 end

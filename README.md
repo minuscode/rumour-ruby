@@ -54,6 +54,19 @@ recipient = 'Device-Token-Here'
 rumour.send_push_notification('ios', recipient, alert: { ... })
 ```
 
+### Interceptors
+
+Intercept text messages and/or push notifications when you don't want to send stuff to real numbers. Every text message and/or push notification will be intercepted and sent to the recipients you might configure as interceptors:
+```ruby
+# config/initializers/rumour.rb
+
+Rumour.configure do |config|
+  config.intercept_text_message_recipient = 'your_mobile_phone_number'
+  config.config.intercept_push_notification_recipient = 'your_device_token'
+end
+```
+
+
 ## Contributing
 
 1. Fork it ( https://github.com/joaodiogocosta/rumour-ruby/fork ) 

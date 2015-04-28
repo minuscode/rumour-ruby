@@ -51,7 +51,7 @@ RSpec.describe Rumour::Client do
     end
   end
 
-  describe 'push_notifications' do
+  describe 'android push_notifications' do
     describe 'send with valid data' do
       it 'creates and retrieves a new push notification as a hash' do
         rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
@@ -69,6 +69,36 @@ RSpec.describe Rumour::Client do
         push_notification = rumour_client.send_push_notification('ios', 'some_registration_id', { alert: 'world'})
         
         expect(push_notification['id']).to_not be_nil
+      end
+    end
+  end
+
+  describe 'interceptor' do
+    describe 'for text messages' do
+      it 'sends the message to the interceptor' do
+        Rumour.configure do |config|
+          config.intercept_text_message_recipient = '+14108675309'
+        end
+
+        rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
+        text_message = rumour_client.send_text_message(TWILIO_TEST_SENDER_NUMBER, '+351912345678', 'Hello from rumour-ruby!')
+        
+        expect(text_message['id']).to_not be_nil
+        expect(text_message['recipient']).to eq('+14108675309')
+      end
+    end
+
+    describe 'for push notifications' do
+      it 'sends the push notification to the interceptor' do
+        Rumour.configure do |config|
+          config.intercept_push_notification_recipient = 'push_recipient'
+        end
+
+        rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
+        push_notification = rumour_client.send_push_notification('ios', 'some_registration_id', { alert: 'world'})
+        
+        expect(push_notification['id']).to_not be_nil
+        expect(push_notification['recipient']).to eq('push_recipient')
       end
     end
   end

@@ -16,10 +16,12 @@ module Rumour
     end
 
     def send_text_message(sender, recipient, body)
+      recipient = Rumour.configuration.intercept_text_message_recipient || recipient
       post('/text_messages', text_message: { from: sender, recipient: recipient, body: body })
     end
 
     def send_push_notification(platform, recipient, options= {})
+      recipient = Rumour.configuration.intercept_push_notification_recipient || recipient
       post('/push_notifications', push_notification: { platform: platform, recipient: recipient }.merge(options))
     end
 

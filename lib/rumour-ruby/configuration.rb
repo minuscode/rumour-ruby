@@ -2,7 +2,9 @@ module Rumour
   class Configuration
     CONFIGURABLE_ATTRIBUTES = [
       :api_key,
-      :access_token
+      :access_token,
+      :intercept_text_message_recipient,
+      :intercept_push_notification_recipient
     ]
 
     attr_accessor *CONFIGURABLE_ATTRIBUTES
