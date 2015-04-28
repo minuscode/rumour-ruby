@@ -62,7 +62,7 @@ Intercept text messages and/or push notifications when you don't want to send st
 
 Rumour.configure do |config|
   config.intercept_text_message_recipient = 'your_mobile_phone_number'
-  config.config.intercept_push_notification_recipient = 'your_device_token'
+  config.intercept_push_notification_recipient = 'your_device_token'
 end
 ```
 
