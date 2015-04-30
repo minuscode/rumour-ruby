@@ -55,7 +55,7 @@ RSpec.describe Rumour::Client do
     describe 'send with valid data' do
       it 'creates and retrieves a new push notification as a hash' do
         rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
-        push_notification = rumour_client.send_push_notification('android', 'some_registration_id', data: { hello: 'world'})
+        push_notification = rumour_client.send_push_notification('android::some_registration_id', title: 'PN Title', text: 'PN Text', android_data: { my_key: 'my_value'})
 
         expect(push_notification['id']).to_not be_nil
       end
@@ -66,7 +66,7 @@ RSpec.describe Rumour::Client do
     describe 'send with valid data' do
       it 'creates and retrieves a new push notification as a hash' do
         rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
-        push_notification = rumour_client.send_push_notification('ios', 'some_registration_id', { alert: 'world'})
+        push_notification = rumour_client.send_push_notification('ios::some_device_token', title: 'PN Title', text: 'PN Text', ios_alert: { title: 'iOS Title'})
         
         expect(push_notification['id']).to_not be_nil
       end
@@ -91,12 +91,12 @@ RSpec.describe Rumour::Client do
     describe 'for push notifications' do
       it 'sends the push notification to the interceptor' do
         Rumour.configure do |config|
-          config.intercept_push_notification_recipient = 'push_recipient'
+          config.intercept_push_notification_recipient = 'ios::push_recipient'
         end
 
         rumour_client = Rumour::Client.new(RUMOUR_TEST_ACCESS_TOKEN)
-        push_notification = rumour_client.send_push_notification('ios', 'some_registration_id', { alert: 'world'})
-        
+        push_notification = rumour_client.send_push_notification('ios::some_device_token', title: 'PN Title', text: 'PN Text', ios_alert: { title: 'iOS Title'})
+
         expect(push_notification['id']).to_not be_nil
         expect(push_notification['recipient']).to eq('push_recipient')
       end
