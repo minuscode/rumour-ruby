@@ -1,6 +1,6 @@
-# Rumour
+# rumour-ruby
 
-Rumour is a Ruby wrapper to communicate with Rumour REST API.
+**rumour-ruby** is a Ruby wrapper to communicate with Rumour REST API.
 
 ## Installation
 
