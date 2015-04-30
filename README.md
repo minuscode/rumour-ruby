@@ -42,14 +42,14 @@ rumour.send_text_message(from, recipient, Hello from Rumour!')
 
 Or an Android Push Notification:
 ```ruby
-recipient = 'android::Device-Token-Here'
+recipient = 'android::Registration-Id-Here'
 
 rumour.send_push_notification(recipient, title: 'Push Notification Title', text: 'Push Notification Text', android_data: { some_key: 'some_value' })
 ```
 
 Or even an iOS Push Notification:
 ```ruby
-recipient = 'Device-Token-Here'
+recipient = 'ios::Device-Token-Here'
 
 rumour.send_push_notification(title: 'Push Notification Title', text: 'Push Notification Text', ios_alert: { badge: 2 })
 ```
