@@ -45,13 +45,24 @@ Or an Android Push Notification:
 recipient = 'android::Registration-Id-Here'
 
 rumour.send_push_notification(recipient, title: 'Push Notification Title', text: 'Push Notification Text', android_data: { some_key: 'some_value' })
+
+rumour.send_push_notification(
+  title: 'Push Notification Title', # optional
+  text: 'Push Notification Text', # optional
+  additional_data: { ... } # optional
+)
 ```
 
 Or even an iOS Push Notification:
 ```ruby
 recipient = 'ios::Device-Token-Here'
 
-rumour.send_push_notification(title: 'Push Notification Title', text: 'Push Notification Text', ios_alert: { badge: 2 })
+rumour.send_push_notification(
+  title: 'Push Notification Title', # optional
+  text: 'Push Notification Text', # optional
+  additional_data: { ... }, # optional
+  ios_alert: { badge: 2 } # optional
+)
 ```
 
 ### Interceptors
