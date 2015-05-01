@@ -44,8 +44,6 @@ Or an Android Push Notification:
 ```ruby
 recipient = 'android::Registration-Id-Here'
 
-rumour.send_push_notification(recipient, title: 'Push Notification Title', text: 'Push Notification Text', android_data: { some_key: 'some_value' })
-
 rumour.send_push_notification(
   title: 'Push Notification Title', # optional
   text: 'Push Notification Text', # optional
