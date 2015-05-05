@@ -16,13 +16,13 @@ module Rumour
     end
 
     def send_text_message(sender, recipient, body)
-      recipient = Rumour.configuration.intercept_text_message_recipient || recipient
+      recipient = intercept_tm_recipient || recipient
       post('/text_messages', text_message: { from: sender, recipient: recipient, body: body })
     end
 
-    def send_push_notification(recipient, options= {})
-      recipient = Rumour.configuration.intercept_push_notification_recipient || recipient
-      post('/push_notifications', push_notification: { recipient: recipient }.merge(options))
+    def send_push_notification(recipients, options= {})
+      recipients = intercept_pn_recipients unless [intercept_pn_recipients].compact.empty?
+      post('/push_notifications', push_notification: { recipients: [recipients].flatten }.merge(options))
     end
 
     private
@@ -53,6 +53,14 @@ module Rumour
         when 500
           raise Rumour::Errors::AuthenticationError.new response_body['message']
         end
+      end
+
+      def intercept_tm_recipient
+        Rumour.configuration.intercept_text_message_recipient
+      end
+
+      def intercept_pn_recipients
+        Rumour.configuration.intercept_push_notification_recipients
       end
   end
 end

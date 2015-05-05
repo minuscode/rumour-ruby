@@ -34,7 +34,7 @@ rumour = Rumour::Client.new(access_token)
 Then, send a text message:
 ```ruby
 from = '+15005550006'
-recipient = '+15005550005'
+recipients = '+15005550005'
 
 rumour.send_text_message(from, recipient, Hello from Rumour!')
 #=> {'id' => '1', 'from' => '+15005550006', 'recipient' => '+15005550005', ... }
@@ -42,25 +42,45 @@ rumour.send_text_message(from, recipient, Hello from Rumour!')
 
 Or an Android Push Notification:
 ```ruby
-recipient = 'android::Registration-Id-Here'
+recipients = ['android::Registration-Id-Here']
 
 rumour.send_push_notification(
+  recipients,
   title: 'Push Notification Title', # optional
   text: 'Push Notification Text', # optional
   additional_data: { ... } # optional
+  android: { data: { some_key: 'some_value'}}, # optional
 )
+#=> [{'id' => '2', 'platform' => 'android', 'recipient' => 'Registration-Id-Here', ...}]
 ```
 
 Or even an iOS Push Notification:
 ```ruby
-recipient = 'ios::Device-Token-Here'
+recipients = ['ios::Device-Token-Here']
 
 rumour.send_push_notification(
+  recipients,
   title: 'Push Notification Title', # optional
   text: 'Push Notification Text', # optional
   additional_data: { ... }, # optional
-  ios_alert: { badge: 2 } # optional
+  ios: { alert: { badge: 2 } } # optional
 )
+#=> [{'id' => '2', 'platform' => 'ios', 'recipient' => 'Device-Token-Here', ...}]
+```
+
+You can also send Push Notifications for multiple devices and platforms:
+```ruby
+recipients = ['android::Registration-Id-Here', 'ios::Device-Token-Here']
+
+rumour.send_push_notification(
+  recipients,
+  title: 'Push Notification Title', # optional
+  text: 'Push Notification Text', # optional
+  additional_data: { ... }, # optional
+  android: { data: { some_key: 'some_value'}}, # optional
+  ios: { alert: { badge: 2 } } # optional
+)
+#=> [{'id' => '3', 'platform' => 'android', 'recipient' => 'Registration-Id-Here', ...}, {'id' => '4', 'platform' => 'ios', 'recipient' => 'Device-Token-Here', ...}]
 ```
 
 ### Interceptors
@@ -71,7 +91,7 @@ Intercept text messages and/or push notifications when you don't want to send st
 
 Rumour.configure do |config|
   config.intercept_text_message_recipient = 'your_mobile_phone_number'
-  config.intercept_push_notification_recipient = 'android::your_registration_id'
+  config.intercept_push_notification_recipients = ['android::your_registration_id']
 end
 ```
 

@@ -4,7 +4,7 @@ module Rumour
       :api_key,
       :access_token,
       :intercept_text_message_recipient,
-      :intercept_push_notification_recipient
+      :intercept_push_notification_recipients
     ]
 
     attr_accessor *CONFIGURABLE_ATTRIBUTES
