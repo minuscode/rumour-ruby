@@ -21,7 +21,7 @@ module Rumour
     end
 
     def send_push_notification(recipients, options= {})
-      recipients = intercept_pn_recipients unless [intercept_pn_recipients].compact.empty?
+      recipients = intercept_pn_recipients unless [intercept_pn_recipients].flatten.compact.empty?
       post('/push_notifications', push_notification: { recipients: [recipients].flatten }.merge(options))
     end
 
