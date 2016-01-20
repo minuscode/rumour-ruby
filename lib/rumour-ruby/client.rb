@@ -6,7 +6,7 @@ require 'forwardable'
 module Rumour
   class Client
     include HTTParty
-    base_uri 'rumour.herokuapp.com/api/v1'
+    base_uri '188.166.65.141/api/v1'
 
     attr_accessor :access_token
 
