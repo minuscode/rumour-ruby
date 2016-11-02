@@ -47,10 +47,13 @@ module Rumour
         when 201
           response_body
         when 400
+          debugger
           raise Rumour::Errors::RequestError.new response_body['message']
         when 401
+          debugger
           raise Rumour::Errors::AuthenticationError.new response_body['message']
         when 500
+          debugger
           raise Rumour::Errors::AuthenticationError.new response_body['message']
         end
       end
